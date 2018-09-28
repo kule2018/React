@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+
+    <script>
+        onload = function() {
+            const btn = document.getElementById('btn')
+                // 箭头函数的this指向的是window
+            console.log(this)
+
+            // btn.onclick = () => {
+            //     this.style.backgroundColor = 'red'
+            // }
+
+            // 箭头函数的this指向的是外层的作用域
+            btn.onclick = function() {
+                // this.style.backgroundColor = 'red'
+
+                // 定时器的this指向的是window
+                setTimeout(() => {
+                    this.style.backgroundColor = 'red'
+                }, 1000)
+            }
+        }
+    </script>
+</body>
+
+</html>
